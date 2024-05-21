@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 import 'dart:convert';
+import 'package:hmi_core/hmi_core.dart' hide Result;
+import 'package:hmi_core/hmi_core_result_new.dart';
 import 'package:sss_data_upload_client/core/models/file/file_uploaded.dart';
 ///
 /// Representation of uploaded [FileUploaded]
@@ -24,7 +26,14 @@ final class CsvUtf8File implements FileUploaded<String> {
   ///
   /// Returns [CsvUtf8File] content as text
   @override
-  String extract() {
-    return utf8.decode(_bytes.toList());
+  Result<String, Failure<String>> extract() {
+    try {
+      return Ok(utf8.decode(_bytes.toList()));
+    } on FormatException {
+      return Err(Failure(
+        message: const Localized('Wrong file format or charset encoding').v,
+        stackTrace: StackTrace.current,
+      ));
+    }
   }
 }
