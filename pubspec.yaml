@@ -1,0 +1,35 @@
+name: sss_data_upload_client
+description: "Data upload client for the sss-computing project"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hmi_core:
+    git:
+      url: https://github.com/a-givertzman/hmi_core.git
+      ref: 2.0.0
+  hmi_widgets:
+    git:
+      url: https://github.com/a-givertzman/hmi_widgets.git
+      ref: 1.0.1
+  window_manager: ^0.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  dart_code_metrics: ^5.1.0
+  flutter_launcher_icons: ^0.11.0
+  
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/img/
+    - assets/settings/
+    - assets/translations/
