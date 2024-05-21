@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hmi_core/hmi_core_app_settings.dart';
 import 'package:sss_data_upload_client/core/theme/app_theme_switch.dart';
-import 'package:sss_data_upload_client/presentation/strength-form/test_page.dart';
 import 'package:window_manager/window_manager.dart';
 /// Main widget of flutter application
 class AppWidget extends StatefulWidget {
@@ -62,7 +61,7 @@ class _AppWidgetState extends State<AppWidget> {
       debugShowCheckedModeBanner: false,
       theme: _themeSwitch.themeData,
       home: const Scaffold(
-        body: TestPage(),
+        body: const Text('Empty scaffold'),
       ),
     );
   }
