@@ -1,1 +1,4 @@
-{}
+{
+    "Browse file": ["Browse file", "Выбрать файл"],
+    "No file selected": ["No file selected", "Файл не выбран"]
+}
