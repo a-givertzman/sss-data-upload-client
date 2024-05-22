@@ -3,13 +3,15 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:hmi_core/hmi_core.dart';
 import 'package:hmi_core/hmi_core_app_settings.dart';
-import 'package:sss_data_upload_client/core/models/file/file.dart';
+import 'package:sss_data_upload_client/core/models/file/file_uploaded.dart';
+///
 /// Input widget for file selection
-class FileInput<T extends File> extends StatefulWidget {
+class FileInput<T extends FileUploaded> extends StatefulWidget {
   final T? Function(Uint8List?, String?) _buildValue;
   final void Function(T?)? _onValueChanged;
   final T? _initialValue;
   final List<String> _allowedExtensions;
+  ///
   /// Creates [FileInput] widget.
   ///
   /// - [buildValue] - called to set [FileInput] value using [bytes] and [name];
@@ -38,7 +40,7 @@ class FileInput<T extends File> extends StatefulWidget {
       );
 }
 ///
-class _FileInputState<T extends File> extends State<FileInput<T>> {
+class _FileInputState<T extends FileUploaded> extends State<FileInput<T>> {
   final T? Function(Uint8List?, String?) _buildValue;
   final void Function(T?)? _onValueChanged;
   final T? _initialValue;
@@ -109,7 +111,7 @@ class _FileInputState<T extends File> extends State<FileInput<T>> {
   }
 }
 ///
-class _FilePreview<T extends File> extends StatelessWidget {
+class _FilePreview<T extends FileUploaded> extends StatelessWidget {
   final T? file;
   final void Function() onDelete;
   ///

@@ -2,10 +2,11 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:hmi_core/hmi_core_app_settings.dart';
 import 'package:hmi_widgets/hmi_widgets.dart';
-import 'package:sss_data_upload_client/core/models/file/file.dart';
+import 'package:sss_data_upload_client/core/models/file/file_uploaded.dart';
 import 'package:sss_data_upload_client/presentation/strength-form/widgets/file_input.dart';
+///
 /// [FormField] with [FileInput]
-class FileFormField<T extends File> extends StatelessWidget {
+class FileFormField<T extends FileUploaded> extends StatelessWidget {
   final String _label;
   final String? _helperMessage;
   final T? Function(Uint8List?, String?) _buildValue;
@@ -15,6 +16,7 @@ class FileFormField<T extends File> extends StatelessWidget {
   final T? _initialValue;
   final AutovalidateMode? _autovalidateMode;
   final List<String> _allowedExtensions;
+  ///
   /// Creates [FileFormField] widget.
   ///
   /// - [label] - label of [FormField];

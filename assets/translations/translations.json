@@ -1,4 +1,5 @@
 {
     "Browse file": ["Browse file", "Выбрать файл"],
-    "No file selected": ["No file selected", "Файл не выбран"]
+    "No file selected": ["No file selected", "Файл не выбран"],
+    "Wrong file format or charset encoding": ["Wrong file format or charset encoding", "Неверный формат или кодировка файла"]
 }
