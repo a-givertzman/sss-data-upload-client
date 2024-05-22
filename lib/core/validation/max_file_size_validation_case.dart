@@ -4,14 +4,14 @@ import 'package:sss_data_upload_client/core/models/file/file_uploaded.dart';
 import 'validation_case.dart';
 ///
 /// [ValidationCase] to check file size with upper limit
-final class MinFileSizeValidationCase implements ValidationCase<FileUploaded> {
+final class MaxFileSizeValidationCase implements ValidationCase<FileUploaded> {
   final int _maxFileSize;
   ///
   /// Creates [ValidationCase] that passes if size of file
   /// less or equal to [maxFileSize]
   ///
   /// - [maxFileSize] - upper limit for file size in bytes.
-  const MinFileSizeValidationCase({required int maxFileSize})
+  const MaxFileSizeValidationCase({required int maxFileSize})
       : assert(maxFileSize > 0),
         _maxFileSize = maxFileSize;
   //
