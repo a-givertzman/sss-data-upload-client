@@ -24,7 +24,7 @@ final class MaxFileSizeValidationCase implements ValidationCase<FileUploaded> {
       return const Ok(null);
     }
     return Err(Failure(
-      message: 'Size of file too big',
+      message: const Localized('File size too large').v,
       stackTrace: StackTrace.current,
     ));
   }

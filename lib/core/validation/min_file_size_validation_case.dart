@@ -24,7 +24,7 @@ final class MinFileSizeValidationCase implements ValidationCase<FileUploaded> {
       return const Ok(null);
     }
     return Err(Failure(
-      message: 'Size of file too small',
+      message: const Localized('File size too small').v,
       stackTrace: StackTrace.current,
     ));
   }
