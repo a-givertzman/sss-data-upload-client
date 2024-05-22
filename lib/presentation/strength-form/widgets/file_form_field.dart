@@ -9,7 +9,7 @@ import 'package:sss_data_upload_client/presentation/strength-form/widgets/file_i
 class FileFormField<T extends FileUploaded> extends StatelessWidget {
   final String _label;
   final String? _helperMessage;
-  final T? Function(Uint8List?, String?) _buildValue;
+  final T Function(Uint8List, String) _buildValue;
   final void Function(T?)? _onValueChanged;
   final void Function(T?)? _onSaved;
   final String? Function(T?)? _validator;
@@ -30,12 +30,12 @@ class FileFormField<T extends FileUploaded> extends StatelessWidget {
   /// - [initialValue] - initial value for [FileInput];
   /// - [autovalidateMode] - declare [AutovalidateMode] for [FormField];
   /// - [allowedExtensions] - [List] of allowed file extensions for [FileInput]
-  /// in [String] format, e.g. ['png', 'jpeg'].
+  /// in [String] format, e.g. `['png', 'jpeg']`.
   const FileFormField({
     super.key,
     required String label,
     String? helperMessage,
-    required T? Function(Uint8List? bytes, String? name) buildValue,
+    required T Function(Uint8List bytes, String name) buildValue,
     void Function(T? newValue)? onValueChanged,
     void Function(T? newValue)? onSaved,
     String? Function(T? value)? validator,
