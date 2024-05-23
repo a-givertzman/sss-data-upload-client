@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:hmi_core/hmi_core.dart' hide Result;
+import 'package:hmi_core/hmi_core.dart';
+import 'package:sss_data_upload_client/core/result/result_fs.dart';
 import 'package:hmi_core/hmi_core_result_new.dart';
 import 'package:sss_data_upload_client/core/models/file/file_uploaded.dart';
 import 'validation_case.dart';
@@ -12,7 +13,7 @@ final class Utf8FileEncodingValidationCase
   const Utf8FileEncodingValidationCase();
   //
   @override
-  Result<void, Failure<String>> isSatisfiedBy(FileUploaded? value) {
+  ResultFS<void> isSatisfiedBy(FileUploaded? value) {
     if (value == null) {
       return const Ok(null);
     }

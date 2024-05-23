@@ -1,6 +1,5 @@
 import 'dart:async';
-import 'package:hmi_core/hmi_core.dart' hide Result;
-import 'package:hmi_core/hmi_core_result_new.dart';
+import 'package:sss_data_upload_client/core/result/result_fs.dart';
 import 'package:sss_data_upload_client/core/models/field/field_type.dart';
 import 'package:sss_data_upload_client/core/validation/validator.dart';
 ///
@@ -21,5 +20,5 @@ abstract interface class FieldData<T> {
   FieldType type();
   ///
   /// Processes field data and returns it's json representation.
-  Future<Result<Map<String, dynamic>, Failure<String>>> process(T? value);
+  Future<ResultFS<Map<String, dynamic>>> asMap(T? value);
 }

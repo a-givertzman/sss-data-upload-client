@@ -1,7 +1,8 @@
 import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
-import 'package:hmi_core/hmi_core.dart' hide Result;
+import 'package:hmi_core/hmi_core.dart';
 import 'package:hmi_core/hmi_core_result_new.dart';
+import 'package:sss_data_upload_client/core/result/result_fs.dart';
 import 'package:sss_data_upload_client/core/models/file/file_uploaded.dart';
 ///
 /// Interface for calling system file picker
@@ -27,7 +28,7 @@ class FilePick<T extends FileUploaded> {
         _buildValue = buildValue;
   ///
   /// Retrieves the file(s) from the underlying platform
-  Future<Result<List<T>?, Failure<String>>> pick() async {
+  Future<ResultFS<List<T>?>> pick() async {
     return FilePicker.platform
         .pickFiles(
           allowMultiple: _allowMultiple,
@@ -35,7 +36,7 @@ class FilePick<T extends FileUploaded> {
           type: FileType.custom,
           withData: true,
         )
-        .then<Result<List<T>?, Failure<String>>>(
+        .then<ResultFS<List<T>?>>(
           (pickResult) => Ok(pickResult?.files.map((file) {
             final (bytes, name) = (file.bytes, file.name);
             if (bytes == null) {

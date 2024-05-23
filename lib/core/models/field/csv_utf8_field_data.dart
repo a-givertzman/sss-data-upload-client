@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:hmi_core/hmi_core.dart' hide Result;
 import 'package:hmi_core/hmi_core_result_new.dart';
+import 'package:sss_data_upload_client/core/result/result_fs.dart';
 import 'package:sss_data_upload_client/core/models/field/field_data.dart';
 import 'package:sss_data_upload_client/core/models/field/field_type.dart';
 import 'package:sss_data_upload_client/core/models/file/csv_ut8_file.dart';
@@ -38,19 +38,21 @@ final class CsvUtf8FieldData implements FieldData<CsvUtf8File> {
   Validator<CsvUtf8File>? validator() => _validator;
   //
   @override
-  Future<Result<Map<String, dynamic>, Failure<String>>> process(
+  Future<ResultFS<Map<String, dynamic>>> asMap(
     CsvUtf8File? value,
   ) async {
     if (value == null) {
       return Ok({
         'label': label(),
-        'content': null,
+        'type': 'csv',
+        'body': null,
       });
     }
     return switch (await value.extract()) {
       Ok(value: final text) => Ok({
           'label': label(),
-          'content': text,
+          'type': 'csv',
+          'body': text,
         }),
       Err(:final error) => Err(error),
     };

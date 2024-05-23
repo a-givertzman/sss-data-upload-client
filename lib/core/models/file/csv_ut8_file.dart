@@ -1,8 +1,9 @@
 import 'dart:isolate';
 import 'dart:typed_data';
 import 'dart:convert';
-import 'package:hmi_core/hmi_core.dart' hide Result;
+import 'package:hmi_core/hmi_core.dart';
 import 'package:hmi_core/hmi_core_result_new.dart';
+import 'package:sss_data_upload_client/core/result/result_fs.dart';
 import 'package:sss_data_upload_client/core/models/file/file_uploaded.dart';
 ///
 /// Representation of uploaded [FileUploaded]
@@ -27,8 +28,8 @@ final class CsvUtf8File implements FileUploaded<String> {
   ///
   /// Returns [CsvUtf8File] content as text
   @override
-  Future<Result<String, Failure<String>>> extract() async {
-    return Isolate.run<Result<String, Failure<String>>>(() {
+  Future<ResultFS<String>> extract() async {
+    return Isolate.run<ResultFS<String>>(() {
       try {
         return Ok(utf8.decode(_bytes));
       } on FormatException {
