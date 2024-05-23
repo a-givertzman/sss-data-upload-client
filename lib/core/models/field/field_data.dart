@@ -7,18 +7,26 @@ import 'package:sss_data_upload_client/core/validation/validator.dart';
 /// and processes it.
 abstract interface class FieldData<T> {
   ///
-  /// Returns field's label.
-  String label();
+  /// Field's unique identificator.
+  String get id;
   ///
-  /// Returns field's helper message.
-  String? helperMessage();
+  /// Type of field's data.
+  FieldType get type;
   ///
-  /// Returns field's validator.
-  Validator<T>? validator();
+  /// Tag for field's data, used to identify subject of field's data.
+  String get tag;
   ///
-  /// Returns type of field's data.
-  FieldType type();
+  /// Field's label (name).
+  String get label;
   ///
-  /// Processes field data and returns it's json representation.
-  Future<ResultFS<Map<String, dynamic>>> asMap(T? value);
+  /// Field's helper message, can be used to inform user
+  /// about some useful information;
+  String? get helperMessage;
+  ///
+  /// Field's validator, used to check field's value
+  /// before processing.
+  Validator<T>? get validator;
+  ///
+  /// Processes field data and returns it's string representation.
+  Future<ResultFS<String?>> extract(T? value);
 }

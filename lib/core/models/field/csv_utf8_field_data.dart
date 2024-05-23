@@ -8,53 +8,38 @@ import 'package:sss_data_upload_client/core/validation/validator.dart';
 ///
 /// [FieldData] for [CsvUtf8File].
 final class CsvUtf8FieldData implements FieldData<CsvUtf8File> {
-  final String _label;
-  final String? _helperMessage;
-  final Validator<CsvUtf8File>? _validator;
+  @override
+  final String id;
+  @override
+  final FieldType type = FieldType.csvUtf8;
+  @override
+  final String tag;
+  @override
+  final String label;
+  @override
+  final String? helperMessage;
+  @override
+  final Validator<CsvUtf8File>? validator;
   ///
   /// Creates [FieldData] using passed values
   ///
-  /// - [label];
-  /// - [helperMessage];
-  /// - [validator].
+  /// - [id] - field's unique identificator;
+  /// - [label] - field's label;
+  /// - [helperMessage] - field's helper message, can be used to inform user
+  /// about some useful information;
+  /// - [validator] - field's validator, used to check field's value
+  /// before processing.
   const CsvUtf8FieldData({
-    required String label,
-    String? helperMessage,
-    Validator<CsvUtf8File>? validator,
-  })  : _label = label,
-        _helperMessage = helperMessage,
-        _validator = validator;
+    required this.id,
+    required this.tag,
+    required this.label,
+    this.helperMessage,
+    this.validator,
+  });
   //
   @override
-  String label() => _label;
-  //
-  @override
-  String? helperMessage() => _helperMessage;
-  //
-  @override
-  FieldType type() => FieldType.csvUtf8;
-  //
-  @override
-  Validator<CsvUtf8File>? validator() => _validator;
-  //
-  @override
-  Future<ResultFS<Map<String, dynamic>>> asMap(
-    CsvUtf8File? value,
-  ) async {
-    if (value == null) {
-      return Ok({
-        'label': label(),
-        'type': 'csv',
-        'body': null,
-      });
-    }
-    return switch (await value.extract()) {
-      Ok(value: final text) => Ok({
-          'label': label(),
-          'type': 'csv',
-          'body': text,
-        }),
-      Err(:final error) => Err(error),
-    };
+  Future<ResultFS<String?>> extract(CsvUtf8File? value) async {
+    if (value == null) return const Ok(null);
+    return value.extract();
   }
 }
