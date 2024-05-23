@@ -1,3 +1,4 @@
+import 'package:hmi_core/hmi_core.dart';
 import 'package:hmi_core/hmi_core_result_new.dart';
 import 'package:sss_data_upload_client/core/models/field/field_data.dart';
 import 'package:sss_data_upload_client/core/models/field/field_type.dart';
@@ -26,7 +27,10 @@ class FieldJson<T> {
           'tag': _fieldData.tag,
           'body': body,
         }),
-      Err(:final error) => Err(error),
+      Err(:final error) => Err(Failure(
+          message: '${_fieldData.label}: $error',
+          stackTrace: StackTrace.current,
+        )),
     };
   }
 }

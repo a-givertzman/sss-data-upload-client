@@ -35,6 +35,7 @@ class FilePick<T extends FileUploaded> {
           allowedExtensions: _allowedExtension,
           type: FileType.custom,
           withData: true,
+          lockParentWindow: true,
         )
         .then<ResultFS<List<T>?>>(
           (pickResult) => Ok(pickResult?.files.map((file) {

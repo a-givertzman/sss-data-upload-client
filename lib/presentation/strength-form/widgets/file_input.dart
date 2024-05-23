@@ -99,7 +99,7 @@ class _FileInputState<T extends FileUploaded> extends State<FileInput<T>> {
         FilledButton.icon(
           icon: const Icon(Icons.file_upload_outlined),
           label: Text(const Localized('Browse file').v),
-          onPressed: _handleFilePick,
+          onPressed: _isLoading ? null : _handleFilePick,
         ),
       ],
     );

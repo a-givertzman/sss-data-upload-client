@@ -34,7 +34,9 @@ final class CsvUtf8File implements FileUploaded<String> {
         return Ok(utf8.decode(_bytes));
       } on FormatException {
         return Err(Failure(
-          message: const Localized('Wrong file format or charset encoding').v,
+          message: const Localized(
+            'Wrong file charset encoding (UTF-8 required)',
+          ).v,
           stackTrace: StackTrace.current,
         ));
       }
