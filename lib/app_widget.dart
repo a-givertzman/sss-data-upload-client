@@ -61,7 +61,7 @@ class _AppWidgetState extends State<AppWidget> {
       debugShowCheckedModeBanner: false,
       theme: _themeSwitch.themeData,
       home: const Scaffold(
-        body: Text('Empty scaffold'),
+        body: Text('[Empty scaffold]'),
       ),
     );
   }
