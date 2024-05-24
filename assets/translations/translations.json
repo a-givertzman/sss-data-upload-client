@@ -1,1 +1,9 @@
-{}
+{
+    "Browse file": ["Browse file", "Выбрать файл"],
+    "No file selected": ["No file selected", "Файл не выбран"],
+    "File size too large": ["File size too large", "Слишком большай размер файла"],
+    "File size too small": ["File size too small", "Слишком малый размер файла"],
+    "Required field": ["Required field", "Обязательное поле"],
+    "Wrong file charset encoding (UTF-8 required)": ["Wrong file charset encoding (UTF-8 required)", "Неверная кодировка файла (требуется UTF-8)"],
+    "File cannot be uploaded": ["File cannot be uploaded", "Невозможно загрузить файл"]
+}
